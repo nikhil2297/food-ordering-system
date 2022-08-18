@@ -1,0 +1,18 @@
+{
+  "name": "food-ordering-backend",
+  "version": "1.0.0",
+  "description": "This is food ordering system backend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "serve" : "node server.js"
+  },
+  "author": "Nikhil Lohar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
