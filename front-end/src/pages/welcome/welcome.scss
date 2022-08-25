@@ -1,0 +1,64 @@
+.welcome-root-container{
+    display: flex;
+}
+.left-container{
+    width: 35%;
+    height: 95vh;
+    margin-top: 18px;
+    margin-left: 18px;
+    border-radius: 14px;
+    .welcome-image {
+        position: absolute;
+        height: 60%;
+        width: 80vh;
+        bottom: 0%;
+        right: 61%;
+    }
+
+    h1 {
+        margin-right: 18px;
+        text-align: end;
+        margin-top: 10%;
+        font-size: 3em;
+    }
+
+    .logo{
+        height: 180px;
+        width: 180px;
+        z-index: 9999;
+        margin-left: 18px;
+    }
+}
+
+.right-container {
+    width: 60%;
+    height: 100vh;
+    align-self: center;
+    padding-top: 15em !important;
+}
+
+.tab-container {
+    width: fit-content;
+    margin: 12px;
+    border-radius: 18px;
+    background: #fc8;
+    justify-content: center;
+    display: flex;
+
+    .tab{
+        min-width: 180px;
+    }
+
+    .selected-tab {
+    background-color: #fc8118;
+    border-radius: 18px;
+    color: white;
+    transition: 0.5s;
+    }
+}
+
+.tab-nav-container{
+    width: 100%;
+    text-align: center;
+    text-align: -webkit-center;
+}

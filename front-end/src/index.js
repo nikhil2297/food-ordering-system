@@ -1,14 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from '@mui/system';
+import theme from "./assets/theme/theme";
+import { StyledEngineProvider } from "@mui/material";
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <StyledEngineProvider injectFirst>
+  <ThemeProvider theme={theme}>
     <App />
-  </React.StrictMode>
+  </ThemeProvider>
+  </StyledEngineProvider>
+
+
 );
 
 // If you want to start measuring performance in your app, pass a function

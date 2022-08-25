@@ -5,9 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  src: url(https://example.com/MaterialIcons-Regular.eot);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', 'Roboto',
     monospace;
+}
+
+
+//Container 
+.MuiContainer-root{
+  padding: 0px !important; 
+  margin: 0px !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+
 }
