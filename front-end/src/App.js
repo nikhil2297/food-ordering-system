@@ -1,7 +1,7 @@
-import Welcome from "./pages/welcome/welcome";
+import Layout from "./components/layout/layout";
 
 function App() {
-  return <Welcome />;
+  return <Layout/>
 }
 
 export default App;

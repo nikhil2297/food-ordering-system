@@ -1,0 +1,46 @@
+.home-side-drawer {
+    .MuiDrawer-paper {
+        color: white;
+        position: relative;
+        background-color: #fc8118;
+        height: 100vh;
+        border: none;
+    }
+
+    .MuiSvgIcon-root {
+        color : white;
+        width : 35px;
+        height : 35px;
+    }
+
+    .main-logo-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .main-mini-logo-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .drawer-item-text {
+        span {
+            font-size: 1.2em;
+        }
+    }
+}
+
+.home-container{
+    display: flex;
+    background-color: #fc8118;
+
+}
+
+.home-play-area-container {
+    padding: 18px;
+    background-color: white;
+    width: 100%;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+}
+

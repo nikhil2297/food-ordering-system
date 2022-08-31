@@ -8,11 +8,11 @@ const CustomInputAdorment = (props) => {
     switch (props.type) {
       case "text":
         return (
-          <InputAdornment position={props.positon}>{props.name}</InputAdornment>
+          <InputAdornment position={props.position}>{props.name}</InputAdornment>
         );
       case "icon":
         return (
-          <InputAdornment position={props.positon}>
+          <InputAdornment position={props.position}>
            {props.name}
           </InputAdornment>
         );
@@ -26,7 +26,11 @@ const CustomInputAdorment = (props) => {
 
 const CustomTextField = (props) => {
   const handleChange = (event) => {
-    props.onInputChange({ data: event, name: props.name });
+    if(props?.onInputChange){
+      props.onInputChange(event);
+    }else {
+      console.info('On Input Change is undefined')
+    }
   };
 
   return (
@@ -36,11 +40,11 @@ const CustomTextField = (props) => {
       value={props.value}
       onChange={handleChange}
       label={props.label}
-        type={props.type}
+      type={props.type}
       InputProps={{
         endAdornment: (
           <CustomInputAdorment
-            position="end"
+            position='end'
             type={props.endIconType}
             name={props.endIcon}
           />

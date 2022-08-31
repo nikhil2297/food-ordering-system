@@ -20,6 +20,27 @@ const Register = () => {
     });
   };
 
+  const inputChangeHandler = (props) => (event) => {
+    console.log('Event : ', event.target.value)
+
+    if(props === 'email'){
+      setValues({
+        ...values,
+        email: event.target.value
+      })
+    }else if (props === 'password') {
+      setValues({
+        ...values,
+        password: event.target.value
+      })
+    }else if (props === 'fll-name') {
+      setValues({
+        ...values,
+        fullName: event.target.value
+      })
+    }
+}
+
   return (
     <Container className="root-register-container">
       <h2>Sign up to Everyday Cravings</h2>
@@ -30,19 +51,25 @@ const Register = () => {
         variant="outlined"
         label="Full Name"
         type="text"
+        position="end"
+        onInputChange={inputChangeHandler('full-name')}  
       ></CustomTextField>
       <CustomTextField
         className="text-field email-field"
         variant="outlined"
         label="Email Id"
         type="email"
+        position="end"
+        onInputChange={inputChangeHandler('email')}  
       ></CustomTextField>
       <CustomTextField
         className="text-field password-field"
         variant="outlined"
         label="Password"
         type="password"
-        endIconType="icon"  
+        endIconType="icon"
+        position="end"
+        onInputChange={inputChangeHandler('password')}  
         endIcon={
           <IconButton onClick={handleClickShowPassword}>
             {values.showPassword ? <VisibilityOff /> : <Visibility />}
@@ -53,6 +80,7 @@ const Register = () => {
       <Button
         className="button login-button"
         variant="contained"
+      
         disableElevation
       >
         Login In

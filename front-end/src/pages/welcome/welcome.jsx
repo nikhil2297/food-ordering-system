@@ -1,15 +1,16 @@
 import { Box, Container, Paper, styled } from "@mui/material";
 import React from "react";
 import WelcomeImage from "../../assets/images/welcome-page.png";
-import logo from "../../assets/images/cravings-logo.png";
+import logo from "../../assets/images/cravings-logo-3.png";
 import "./welcome.scss";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Login from "../login/login"
 import Regsiter from "../register/register"
+import { useNavigate } from "react-router-dom";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
-  backgroundImage: `linear-gradient(${theme.palette.background.default}, ${theme.palette.primary.main})`,
+  backgroundImage: `linear-gradient(${theme.palette.primary.main}, ${theme.palette.background.default})`,
 }));
 
 const StyledTab = styled(Tab)(({ theme }) => ({
@@ -35,11 +36,17 @@ function TabPanel(props) {
 }
 
 const Welcome = () => {
+  const navigateTo = useNavigate();
+
   const [selectedTab, setSelectedTab] = React.useState(0);
 
   const onTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
+
+  const onLoginSuccessHandler = () => {
+    navigateTo('/home')
+  }
 
   return (
     <Container className="welcome-root-container">
@@ -69,7 +76,7 @@ const Welcome = () => {
         </Tabs>
 
         <TabPanel value={selectedTab} index={0} tabClassName={'login-panel'}>
-          <Login/>
+          <Login onLoginSuccess={onLoginSuccessHandler}/>
         </TabPanel>
         <TabPanel value={selectedTab} index={1} tabClassName={'register-panel'}>
         <Regsiter/>

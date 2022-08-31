@@ -5,7 +5,9 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import * as React from 'react';
 
-const Login = () => {
+const Login = (props) => {
+
+
   const [values, setValues] = React.useState({
     password: "",
     email: "",
@@ -19,6 +21,26 @@ const Login = () => {
     });
   };
 
+  const inputChangeHandler = (props) => (event) => {
+    console.log('Event : ', event.target.value)
+
+    if(props === 'email'){
+      setValues({
+        ...values,
+        email: event.target.value
+      })
+    }else if (props === 'password') {
+      setValues({
+        ...values,
+        password: event.target.value
+      })
+    }
+}
+
+const onLoginClickHandler = () => {
+  props.onLoginSuccess()
+}
+
   return (
     <Box className="root-login-container">
       <h2>Sign in to Everyday Cravings</h2>
@@ -30,6 +52,7 @@ const Login = () => {
         id="outlined-email-input"
         label="Email Id"
         type="email"
+        onInputChange={inputChangeHandler('email')}
       />
 
       <CustomTextField
@@ -39,6 +62,7 @@ const Login = () => {
         label="Password"
         type={values.showPassword ? "text" :"password"}
         endIconType="icon"
+        onInputChange={inputChangeHandler('password')}  
         endIcon={
           <IconButton onClick={handleClickShowPassword}>
             {values.showPassword ? <VisibilityOff /> : <Visibility />}
@@ -49,6 +73,7 @@ const Login = () => {
       <Button
         className="button login-button"
         variant="contained"
+        onClick={onLoginClickHandler}
         disableElevation
       >
         Login In
