@@ -37,7 +37,6 @@ function TabPanel(props) {
 
 const Welcome = () => {
   const navigateTo = useNavigate();
-
   const [selectedTab, setSelectedTab] = React.useState(0);
 
   const onTabChange = (event, newValue) => {
@@ -46,6 +45,10 @@ const Welcome = () => {
 
   const onLoginSuccessHandler = () => {
     navigateTo('/home')
+  }
+
+  const onRegisterSuccessHandler = () => {
+    setSelectedTab(0)
   }
 
   return (
@@ -57,7 +60,7 @@ const Welcome = () => {
       </StyledPaper>
 
       <Container className="right-container">
-      <Container class="tab-nav-container">
+      <Container className="tab-nav-container">
       <Tabs
           value={selectedTab}
           onChange={onTabChange}
@@ -79,7 +82,7 @@ const Welcome = () => {
           <Login onLoginSuccess={onLoginSuccessHandler}/>
         </TabPanel>
         <TabPanel value={selectedTab} index={1} tabClassName={'register-panel'}>
-        <Regsiter/>
+        <Regsiter onRegisterSuccess={onRegisterSuccessHandler}/>
         </TabPanel>
 
       </Container>

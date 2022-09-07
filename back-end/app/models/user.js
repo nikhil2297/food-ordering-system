@@ -10,7 +10,7 @@ const UserSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   userType: { type: String, required: true },
-  userid: { type: String, unique: true },
+  userid: { type: String, required: true },
 });
 
 const encKey = process.env.PASSWORD_SECRET_KEY;

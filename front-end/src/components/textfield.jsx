@@ -34,13 +34,15 @@ const CustomTextField = (props) => {
   };
 
   return (
-    <TextField
+    <div>
+      <TextField
       variant={props.variant}
       className={props.className}
       value={props.value}
       onChange={handleChange}
       label={props.label}
       type={props.type}
+      error={props.isError}
       InputProps={{
         endAdornment: (
           <CustomInputAdorment
@@ -51,6 +53,8 @@ const CustomTextField = (props) => {
         ),
       }}
     />
+    {props.isError ? <div className="error-text">{props.errortext}</div> : <div></div>}
+    </div>
   );
 };
 

@@ -1,5 +1,7 @@
+import CustomTable from "../../components/table"
+
 const Orders = () => {
-    return (<span>Hello, This is Orders</span>)
+    return (<CustomTable/>)
 }
 
 export default Orders

@@ -1,4 +1,4 @@
-require("dotenv").config();
+  require("dotenv").config();
 const User = require("../../models/user");
 const mongoose = require("mongoose");
 const StatusCode = require("../helper/status-code");
@@ -14,6 +14,7 @@ function AuthController() {
           email: body.email,
           password: body.password,
         });
+
         userData.encryptFieldsSync();
 
         User.find({ email: userData.email, password: userData.password }).exec(
@@ -42,10 +43,10 @@ function AuthController() {
                     }
 
                     return res
-                      .status(Status.STATUS_LOGIN_SUCESSFULL.code)
+                      .status(StatusCode.STATUS_LOGIN_SUCESSFULL.code)
                       .send({
                         message: StatusCode.STATUS_LOGIN_SUCESSFULL.message,
-                        status: "sucess",
+                        status: "success",
                         data: {
                           name: response[0].name,
                           email: response[0].email,
@@ -64,6 +65,12 @@ function AuthController() {
             }
           }
         );
+      }else {
+        return res
+        .status(StatusCode.STATUS_BAD_REQUEST.code)
+        .send({ message: StatusCode.STATUS_BAD_REQUEST.message,
+          status: "error",
+        });
       }
     },
 
@@ -89,6 +96,7 @@ function AuthController() {
                 .send({
                   message: StatusCode.STATUS_SIGNUP_SUCESSFULL.message,
                   data: data,
+                  status: "success",
                 });
             },
             (err) => {
@@ -99,6 +107,7 @@ function AuthController() {
                     ? err.message
                     : StatusCode.STATUS_BAD_REQUEST.message,
                   error: err,
+                  status: "error",
                 });
             }
           )
@@ -108,12 +117,14 @@ function AuthController() {
               .send({
                 message: StatusCode.STATUS_INTERNAL_SEVER_ERROR.message,
                 error: err,
+                status: "error",
               });
           });
       } else {
         return res
           .status(StatusCode.STATUS_BAD_REQUEST.code)
-          .send({ message: StatusCode.STATUS_BAD_REQUEST.message });
+          .send({ message: StatusCode.STATUS_BAD_REQUEST.message,
+            status: "error",});
       }
     },
 

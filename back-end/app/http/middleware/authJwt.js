@@ -2,6 +2,12 @@ const jwt = require('jsonwebtoken')
 const jwtKey = process.env.JWT_KEY
 const StatusCode = require("../helper/status-code");
 
+allowCrossDomain = (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+  next();
+}
 
 verifyToken = (req, res, next) => {
     let token = req.headers["x-access-token"];
@@ -49,5 +55,6 @@ getUserData = (req,res,next) => {
 
 module.exports = {
   verifyToken,
-  getUserData
+  getUserData,
+  allowCrossDomain
 }

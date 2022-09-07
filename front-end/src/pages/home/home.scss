@@ -28,6 +28,17 @@
             font-size: 1.2em;
         }
     }
+
+    .drawer-item-selected {
+        background-color: #ffffff20;
+        border-radius: 12px;
+    }
+
+    .drawer-item-default {
+        background-color: transparent;
+        border-radius: 0px;
+
+    }
 }
 
 .home-container{

@@ -3,10 +3,10 @@ const express = require('express')
 const authMiddleware = require('../http/middleware/authJwt')
 const router = express.Router();
 
-router.post('/login', authController().login);
+router.post('/login', [authMiddleware.allowCrossDomain] ,authController().login);
 
-router.post('/register', authController().register);
+router.post('/register',[authMiddleware.allowCrossDomain], authController().register);
 
-router.get('/getAllUser',[authMiddleware.verifyToken] ,authController().getAllUser);
+router.get('/getAllUser',[authMiddleware.allowCrossDomain, authMiddleware.verifyToken] ,authController().getAllUser);
 
 module.exports = router
