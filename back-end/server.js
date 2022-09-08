@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 
 const app = express();
@@ -22,7 +24,7 @@ const client = require('mongoose')
 
 //Mongo db connection
 const uri =
-  "mongodb+srv://nikhil2297:nikhil020297@cluster0.ivuqnzn.mongodb.net/FoodDeliverySystem?retryWrites=true&w=majority";
+  `mongodb+srv://${process.env.MONGO_USER_NAME}:${process.env.MONGO_PASSWORD}@cluster0.ivuqnzn.mongodb.net/FoodDeliverySystem?retryWrites=true&w=majority`;
 
 async function run() {
   try {
